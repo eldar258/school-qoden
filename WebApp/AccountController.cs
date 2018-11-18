@@ -8,27 +8,27 @@ namespace WebApp
     [Route("api/account")]
     public class AccountController : Controller
     {
-        private readonly IAccountService _service;
+        private readonly IAccountService _accountService;
         
-        public AccountController(IAccountService service)
+        public AccountController(IAccountService accountService)
         {
-            _service = service;
+            _accountService = accountService;
         }
 
         [Authorize]
         [HttpGet]
         public ValueTask<Account> Get()
         {
-            return _service.LoadOrCreateAsync(null /* TODO 3: Get user id from cookie */);
+            return _accountService.LoadOrCreateAsync(null /* TODO 3: Get user id from cookie */);
         }
         
         //TODO 6: Get user id from cookie
         //TODO 7: Endpoint should works only for users with "Admin" Role
         [Authorize]
-        [HttpGet]
-        public Account GetByInternalId([FromQuery] int internalId)
+        [HttpGet("{id}")]
+        public Account GetByInternalId([FromRoute] int id)
         {
-            return _service.GetFromCache(internalId);
+            return _accountService.GetFromCache(id);
         }
 
         [Authorize]

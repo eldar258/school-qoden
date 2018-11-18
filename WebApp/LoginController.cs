@@ -19,7 +19,7 @@ namespace WebApp
             var account = await _db.FindByUserNameAsync(userName);
             if (account != null)
             {
-                //TODO 1: Generate cookie for user 'userName' with external id
+                //TODO 1: Generate auth cookie for user 'userName' with external id
             }
             //TODO 2: return 404 not found if user not found
         }
