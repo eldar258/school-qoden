@@ -21,7 +21,7 @@ namespace WebApp
             _accounts["bob"] = new Account
             {
                 ExternalId = "bob",
-                InternalId = 1,
+                InternalId = 2,
                 UserName = "bob@mailinator.com",
                 Role = "user"
             };
