@@ -19,7 +19,8 @@ namespace WebApp
         [HttpGet]
         public ValueTask<Account> Get()
         {
-            return _accountService.LoadOrCreateAsync(null /* TODO 3: Get user id from cookie */);
+            return _accountService.LoadOrCreateAsync(User.Identity.Name
+                /* TODO 3: Get user id from cookie */);
         }
         
         //TODO 6: Get user id from cookie
