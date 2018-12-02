@@ -25,7 +25,7 @@ namespace WebApp
         
         //TODO 6: Get user id from cookie
         //TODO 7: Endpoint should works only for users with "Admin" Role
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpGet("{id}")]
         public Account GetByInternalId([FromRoute] int id)
         {
